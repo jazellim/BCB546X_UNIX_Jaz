@@ -4,30 +4,35 @@
 
 ### Attributes of `fang_et_al_genotypes`
 
-Counting the number of columns:
+**Counting the number of columns:**
 ```
 awk -F "\t" '{print NF; exit}' fang_et_al_genotypes.txt
 ```
+_This code counts the number of tabs to determine the number of columns._
 
-Finding the size of the file in bytes:
+**Finding the size of the file in bytes:**
 ```
 du -h fang_et_al_genotypes.txt
 ```
+_This code uses the du command with the human-readable tag -h to show the size of the file in bytes._
 
-Counting the number of lines:
+**Counting the number of lines:**
 ```
 wc -l fang_et_al_genotypes.txt
 ```
+_This code uses word count with the tag -l to find the line count for the file._
 
-Counting the amount of each unique Group:
+**Counting the amount of each unique Group:**
 ```
 cut -f 3 sorted_fang_file.txt | uniq -c
 ```
+_This code cuts out file 3 (Group) of the sorted file and then counts how many of each unique Group name there are._
 
-Finding the file type:
+**Finding the file type:**
 ```
 file sorted_fang_file.txt
 ```
+_This code gives the file-type of the file it is given._
 
 By inspecting this file I learned that `fang_et_al_genotypes.txt`:
 
@@ -40,26 +45,36 @@ By inspecting this file I learned that `fang_et_al_genotypes.txt`:
 
 ### Attributes of `snp_position.txt`
 
-Counting the number of columns:
+**Counting the number of columns:**
 ```
 awk -F "\t" '{print NF; exit}' snp_position.txt
 ```
+_This code counts the number of tabs to determine the number of columns._
 
-Finding the size of the file in bytes:
+**Finding the size of the file in bytes:**
 ```
 du -h snp_position.txt
 ```
+_This code uses the du command with the human-readable tag -h to show the size of the file in bytes._
 
-Counting the number of lines:
+**Counting the number of lines:**
 ```
 wc -l snp_position.txt
 ```
+_This code uses word count with the tag -l to find the line count for the file._
+
+**Finding the file type:**
+```
+file sorted_fang_file.txt
+```
+_This code gives the file-type of the file it is given._
 
 By inspecting this file I learned that `snp_position.txt`:
 
 1. has 15 columns
 2. is 38K bytes
 3. has 984 lines
+4. is file-type '_ASCII text_'
 
 
 ## Data Processing
