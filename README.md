@@ -158,6 +158,6 @@ This took the first row of the file and sent it to file `teosinte_organized_snps
 ```
 cat teosinte_organized_snps_header.txt teosinte_organized_snps_noHeader.txt > teosinte_organized_snps.txt
 ```
-The code concatenates the two text files in the order they are given, so placing the heade
+\t The code concatenates the two text files in the order they are given, so placing the heade
 r first, then the noHeader data returns the top row to the sorted snp data. This output is
  sent to `teosinte_organized_snps.txt`
