@@ -174,6 +174,13 @@ awk '$2 ~ /unknown/' maize_joined.txt > maize_chr_unknown.txt
 _The awk command checks the 2nd column of_ *maize_joined* _for 'multiple' and 'unknown', respectively, in these two lines of code. In each case the rows found by awk are sent to files called_ `maize_chr_multiple.txt` _and_ `maize_chr_unknown.txt`_, respectively._ 
 ***These two files, having no more additional modifications needed, were transferred to the newly-made `final_assignment_files/maize` folder.***
 
+
+
+10. dddd
+```
+for i in {1..10}; do sort -k3,3n maize_chr_"$i".txt > ./final_assignment_files/maize/maize_chr_"$i"_increasing.txt;done
+```
+
 ### Teosinte Data
 
 1. At the same time as I did for the maize, I cut out the rows of data for the Teosinte groups, excluding the first two columns from the file, using the following code:
@@ -242,10 +249,15 @@ _The first part of this code sets up a for-loop from 1-10. For each iteration of
 
 9.  As with the maize data, the 'multiple' and 'unknown' chromosome designations were dealt with separately withe following code:
 ```
-awk '$2 ~ /multiple/' maize_joined.txt > maize_chr_multiple.txt
+awk '$2 ~ /multiple/' teosinte_joined.txt > teosinte_chr_multiple.txt
 ```
 ```
-awk '$2 ~ /unknown/' maize_joined.txt > maize_chr_unknown.txt
+awk '$2 ~ /unknown/' teosinte_joined.txt > teosinte_chr_unknown.txt
 ```
 _The awk command checks the 2nd column of_ *teosinte_joined* _for 'multiple' and 'unknown', respectively, in these two lines of code. In each case the rows found by awk are sent to files called_ `teosinte_chr_multiple.txt` _and_ `teosinte_chr_unknown.txt`_, respectively._
 ***These two files, having no more additional modifications needed, were transferred to the newly-made `final_assignment_files/teosinte` folder.***
+
+10. ddd
+```
+for i in {1..10}; do sort -k3,3n teosinte_chr_"$i".txt > ./final_assignment_files/teosinte/teosinte_chr_"$i"_increasing.txt;done
+```
