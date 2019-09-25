@@ -235,14 +235,17 @@ _The first part of this code notes that the common column for both file 1 & 2 is
 ```
 for i in {1..10}; do awk '$2 =='$i'' teosinte_joined.txt > teosinte_chr_"$i".txt; done
 ```
+
 _The first part of this code sets up a for-loop from 1-10. For each iteration of the loop, awk looks for places in column $2 (the Chromosome column) of the joined teosinte file that are equal to $i (an integer 1-10). All of the rows where this is true are sent to a file_ `teosinte_chr_"$i".txt` _where $i in the name changes in every iteration to the value of variable i._
 
 
 
-9. ddd
+9.  As with the maize data, the 'multiple' and 'unknown' chromosome designations were dealt with separately withe following code:
+```
+awk '$2 ~ /multiple/' maize_joined.txt > maize_chr_multiple.txt
 ```
 ```
-```
+awk '$2 ~ /unknown/' maize_joined.txt > maize_chr_unknown.txt
 ```
 _The awk command checks the 2nd column of_ *teosinte_joined* _for 'multiple' and 'unknown', respectively, in these two lines of code. In each case the rows found by awk are sent to files called_ `teosinte_chr_multiple.txt` _and_ `teosinte_chr_unknown.txt`_, respectively._
 ***These two files, having no more additional modifications needed, were transferred to the newly-made `final_assignment_files/teosinte` folder.***
