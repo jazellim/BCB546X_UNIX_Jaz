@@ -180,7 +180,15 @@ _The awk command checks the 2nd column of_ *maize_joined* _for 'multiple' and 'u
 ```
 for i in {1..10}; do sort -k3,3n maize_chr_"$i".txt > ./final_assignment_files/maize/maize_chr_"$i"_increasing.txt;done
 ```
-_The first part sets up a loop from 1-10 of variable i. The 'i'th chromosome is then sorted based on column 3, which is numerical. The output of this sort is sent to the maize folder in the_ *'final_assignment_files'* _folder, with the output files being titled_ `maize_chr_"$i"_increasing.txt` _where '$i' is the number of the current loop. The loop is then concluded with a 'done'._ 
+_The first part sets up a loop from 1-10 of variable i. The 'i'th chromosome is then sorted based on column 3, which is numerical._ **The output of this sort is sent to the maize folder in the *'final_assignment_files'* folder, with the output files being titled *`maize_chr_"$i"_increasing.txt`* where '$i' is the number of the current loop.** _The loop is then concluded with a 'done'._ 
+
+
+
+11. The chromosome files were then sorted in decreasing order and had their markers for 'unknown' changed from '?' to '-'. This was done using this code: 
+```
+for i in {1..10}; do sort -k3,3nr maize_chr_"$i".txt | sed 's/?/-/g' > ./final_assignment_files/maize/maize_chr_"$i"_decreasing.txt;done
+```
+_A loop is established from 1-10. The 'i'th file is sorted according to its 3rd column, position, as before, only this time there is an additional 'r' denoting it is being sorted in reverse order. The 'sed' command changes ? to -, with 'g' ensuring all ?'s are replaced._ **The output is sent to the maize folder in the *final_assignment_files* folder with the title *`maize_chr_"$i"_decreasing.txt`* where once again '$i' is the number of the current loop.** _The loop is then concluded with a 'done'._
 
 ### Teosinte Data
 
@@ -243,7 +251,6 @@ _The first part of this code notes that the common column for both file 1 & 2 is
 ```
 for i in {1..10}; do awk '$2 =='$i'' teosinte_joined.txt > teosinte_chr_"$i".txt; done
 ```
-
 _The first part of this code sets up a for-loop from 1-10. For each iteration of the loop, awk looks for places in column $2 (the Chromosome column) of the joined teosinte file that are equal to $i (an integer 1-10). All of the rows where this is true are sent to a file_ `teosinte_chr_"$i".txt` _where $i in the name changes in every iteration to the value of variable i._
 
 
@@ -258,8 +265,35 @@ awk '$2 ~ /unknown/' teosinte_joined.txt > teosinte_chr_unknown.txt
 _The awk command checks the 2nd column of_ *teosinte_joined* _for 'multiple' and 'unknown', respectively, in these two lines of code. In each case the rows found by awk are sent to files called_ `teosinte_chr_multiple.txt` _and_ `teosinte_chr_unknown.txt`_, respectively._
 ***These two files, having no more additional modifications needed, were transferred to the newly-made `final_assignment_files/teosinte` folder.***
 
+
+
+
 10. I established a loop to sort each teosinte chromosome file in increasing order. The loop is seen in this code: 
 ```
 for i in {1..10}; do sort -k3,3n teosinte_chr_"$i".txt > ./final_assignment_files/teosinte/teosinte_chr_"$i"_increasing.txt;done
 ```
-_A loop is created from 1-10 in variable 'i'. In each loop, the 'i'th chromosome file gets sorted numerically by its 3rd column, the position data. **The output is sent to the Teosinte folder inside the_ *final_assignment_files* _folder under the name_ `teosinte_chr_"$i"_increasing.txt` _where '$i' is the number of the current loop.** The loop is then completed with 'done'.
+_A loop is created from 1-10 in variable 'i'. In each loop, the 'i'th chromosome file gets sorted numerically by its 3rd column, the position data._ **The output is sent to the Teosinte folder inside the *final_assignment_files* folder under the name *`teosinte_chr_"$i"_increasing.txt`* where '$i' is the number of the current loop.** _The loop is then completed with 'done'._
+
+
+
+
+11. The chromosome files for teosinte were then sorted in decreasing order in the same fashion as maize, and their markers for 'unknown' changed from '?' to '-'. This was done using this code:
+```
+for i in {1..10}; do sort -k3,3nr maize_chr_"$i".txt | sed 's/?/-/g' > ./final_assignment_files/maize/maize_chr_"$i"_decreasing.txt;done
+```
+_A loop is established from 1-10 for the variable 'i'. The 'i'th file is sorted based on its 3rd column, position, as it was in step 10, only this time there is an additional 'r' denoting it is being sorted in reverse order. The 'sed' command changes ? to -, with 'g' ensuring all ?'s are replaced._ **The output is sent to the teosinte folder in the *final_assignment_files* folder with the title *`teosinte_chr_"$i"_decreasing.txt`* where once again '$i' is the number of the current loop.** _The loop is then concluded with a 'done'._
+
+## Final Touches
+### Organizing Files
+* The files outside of the 'final' folder are renamed slightly to reflect at which step they were created. For example:
+```
+mv teosinte_fang_file.txt step1_teosinte_fang_file.txt
+```
+_Similar renamings are done to the rest of the files generated throughout the process in steps1-7._
+
+* The step8 files are renamed using a loop:
+```
+for i in {1..10}; do mv teosinte_chr_"$i".txt step8_teosinte_chr_"$i".txt; done
+```
+_A loop is made from 1-10, and the 'i'th number file is moved to a new file with the same name, only with a 'step8' attached to the beginning of the name._
+
