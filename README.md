@@ -176,10 +176,11 @@ _The awk command checks the 2nd column of_ *maize_joined* _for 'multiple' and 'u
 
 
 
-10. dddd
+10. The separated chromosome files for maize were then sorted in increasing order based on their position in the chromosome using the following code:
 ```
 for i in {1..10}; do sort -k3,3n maize_chr_"$i".txt > ./final_assignment_files/maize/maize_chr_"$i"_increasing.txt;done
 ```
+_The first part sets up a loop from 1-10 of variable i. The 'i'th chromosome is then sorted based on column 3, which is numerical. The output of this sort is sent to the maize folder in the_ *'final_assignment_files'* _folder, with the output files being titled_ `maize_chr_"$i"_increasing.txt` _where '$i' is the number of the current loop. The loop is then concluded with a 'done'._ 
 
 ### Teosinte Data
 
@@ -257,7 +258,8 @@ awk '$2 ~ /unknown/' teosinte_joined.txt > teosinte_chr_unknown.txt
 _The awk command checks the 2nd column of_ *teosinte_joined* _for 'multiple' and 'unknown', respectively, in these two lines of code. In each case the rows found by awk are sent to files called_ `teosinte_chr_multiple.txt` _and_ `teosinte_chr_unknown.txt`_, respectively._
 ***These two files, having no more additional modifications needed, were transferred to the newly-made `final_assignment_files/teosinte` folder.***
 
-10. ddd
+10. I established a loop to sort each teosinte chromosome file in increasing order. The loop is seen in this code: 
 ```
 for i in {1..10}; do sort -k3,3n teosinte_chr_"$i".txt > ./final_assignment_files/teosinte/teosinte_chr_"$i"_increasing.txt;done
 ```
+_A loop is created from 1-10 in variable 'i'. In each loop, the 'i'th chromosome file gets sorted numerically by its 3rd column, the position data. The output is sent to the Teosinte folder inside the_ *final_assignment_files* _folder under the name_ `teosinte_chr_"$i"_increasing.txt` _where '$i' is the number of the current loop. The loop is then completed with 'done'.
