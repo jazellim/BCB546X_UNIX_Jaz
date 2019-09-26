@@ -285,6 +285,8 @@ _A loop is established from 1-10 for the variable 'i'. The 'i'th file is sorted 
 
 ## Final Touches
 ### Organizing Files
+* Files that were given as part of the assignment are moved to a folder called `given_files_and_data`
+
 * The files outside of the 'final' folder are renamed slightly to reflect at which step they were created. For example:
 ```
 mv teosinte_fang_file.txt step1_teosinte_fang_file.txt
