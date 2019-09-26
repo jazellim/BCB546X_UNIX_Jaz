@@ -262,4 +262,4 @@ _The awk command checks the 2nd column of_ *teosinte_joined* _for 'multiple' and
 ```
 for i in {1..10}; do sort -k3,3n teosinte_chr_"$i".txt > ./final_assignment_files/teosinte/teosinte_chr_"$i"_increasing.txt;done
 ```
-_A loop is created from 1-10 in variable 'i'. In each loop, the 'i'th chromosome file gets sorted numerically by its 3rd column, the position data. The output is sent to the Teosinte folder inside the_ *final_assignment_files* _folder under the name_ `teosinte_chr_"$i"_increasing.txt` _where '$i' is the number of the current loop. The loop is then completed with 'done'.
+_A loop is created from 1-10 in variable 'i'. In each loop, the 'i'th chromosome file gets sorted numerically by its 3rd column, the position data. **The output is sent to the Teosinte folder inside the_ *final_assignment_files* _folder under the name_ `teosinte_chr_"$i"_increasing.txt` _where '$i' is the number of the current loop.** The loop is then completed with 'done'.
